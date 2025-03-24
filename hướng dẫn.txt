@@ -1,0 +1,18 @@
+pip install
+(APIView,load_dotenv,django, pymongo,respose,collection,status,djangorestframework,google-generativeai)
+
+chạy lệnh này trước: python manage.py migrate
+cách chạy chương trình: py manage.py runserver
+
+
+Test API (lưu ý đường dẫn phải có dấu / ở cuối)
+User:
+(GET):http://127.0.0.1:8000/api/get-users/
+(POST):http://127.0.0.1:8000/api/users/
+(PATCH, PUT, DELETE):http://127.0.0.1:8000/api/users/<Nhập email đã đăng kí vào>/
+Chat:
+(GET):http://127.0.0.1:8000/api/chats/	(/api/chats/<chat_id>/ lấy get của id nào đó)
+(POST):http://127.0.0.1:8000/api/chat/
+Body: { "message": "Xin chào" }
+(PATCH, PUT, DELETE):http://127.0.0.1:8000/api/chats/chat_id/
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm User</title>
+</head>
+<body>
+    <h2>Thêm Người Dùng</h2>
+    <form id="addUserForm">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Thêm</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("addUserForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value; // 🆕 Lấy password
+
+            const response = await fetch("/api/users/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, email, password }) // 🆕 Gửi thêm password
+            });
+
+            const result = await response.json();
+            document.getElementById("message").textContent = response.ok ? "Thêm thành công!" : "Lỗi: " + JSON.stringify(result);
+        });
+    </script>
+</body>
+</html>
