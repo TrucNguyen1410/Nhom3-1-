@@ -1,6 +1,8 @@
-pip install
+cần pip install:
 (APIView,load_dotenv,django, pymongo,respose,collection,status,djangorestframework,google-generativeai)
+pip install django-cors-headers
 
+chạy: npm start (để hiện trang người dùng)
 chạy lệnh này trước: python manage.py migrate
 cách chạy chương trình: py manage.py runserver
 

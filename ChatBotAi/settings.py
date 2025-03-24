@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'chatbot',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -27,6 +28,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'ChatBotAi.urls'
@@ -101,3 +103,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 APPEND_SLASH = False
+
+CORS_ALLOW_ALL_ORIGINS = True  # Cho phép tất cả domain truy cập API
